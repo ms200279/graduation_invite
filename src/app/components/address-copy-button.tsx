@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 
 const VENUE_ADDRESS = "서울특별시 종로구 대학로 57";
+const TOAST_DURATION = 2200;
 
 export default function AddressCopyButton() {
   const [toastMessage, setToastMessage] = useState<string | null>(null);
@@ -25,7 +26,7 @@ export default function AddressCopyButton() {
 
     timeoutRef.current = setTimeout(() => {
       setToastMessage(null);
-    }, 1800);
+    }, TOAST_DURATION);
   };
 
   const copyAddress = async () => {
@@ -45,7 +46,15 @@ export default function AddressCopyButton() {
         onClick={copyAddress}
         aria-label={`${VENUE_ADDRESS} 복사`}
       >
-        홍익대학교 대학로 아트센터 B2 갤러리 3
+        <span>홍익대학교 대학로 아트센터 B2 갤러리 3</span>
+        <svg
+          className="invitation__copy-icon"
+          viewBox="0 0 16 16"
+          aria-hidden="true"
+        >
+          <rect x="5.25" y="5.25" width="8" height="8" rx="1.5" />
+          <path d="M10.75 5.25V4A1.25 1.25 0 0 0 9.5 2.75H4A1.25 1.25 0 0 0 2.75 4v5.5A1.25 1.25 0 0 0 4 10.75h1.25" />
+        </svg>
       </button>
 
       {toastMessage && (
