@@ -26,7 +26,7 @@ export default function Home() {
 
         <div className="invitation__title-group">
           <h1>sensibility</h1>
-          <p>: flexibility through sensibility</p>
+          <p>: Flexibility through Sensibility</p>
         </div>
 
         <div className="invitation__details">
