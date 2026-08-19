@@ -7,7 +7,7 @@ const PANELS = [
     id: "schedule",
     label: "Schedule",
     title: "전시 일정",
-    lines: ["26.09.18 - 09.20", "관람 시간은 추후 안내 예정입니다"],
+    lines: [],
   },
   {
     id: "locate",
@@ -24,6 +24,27 @@ const PANELS = [
     label: "Parking",
     title: "주차 안내",
     lines: ["주차 안내", "상세 내용은 추후 안내 예정입니다"],
+  },
+] as const;
+
+const SCHEDULE = [
+  {
+    date: "09.18.FRI",
+    events: [
+      ["13:00", "자유관람"],
+      ["15:00", "졸업생 홈커밍 행사"],
+      ["16:00", "개회식"],
+      ["16:20", "졸업작품 우수작 시상"],
+      ["16:30", "자유관람"],
+    ],
+  },
+  {
+    date: "09.19.SAT",
+    events: [["10:00", "자유관람"]],
+  },
+  {
+    date: "09.20.SUN",
+    events: [["10:00", "자유관람"]],
   },
 ] as const;
 
@@ -88,11 +109,34 @@ export default function InvitationPanels() {
                 aria-hidden={!isActive}
               >
                 <span className="invitation__panel-title">{panel.title}</span>
-                <span className="invitation__panel-copy">
-                  {panel.lines.map((line) => (
-                    <span key={line}>{line}</span>
-                  ))}
-                </span>
+                {panel.id === "schedule" ? (
+                  <span className="invitation__schedule">
+                    {SCHEDULE.map((day) => (
+                      <span className="invitation__schedule-day" key={day.date}>
+                        <span className="invitation__schedule-date">
+                          {day.date}
+                        </span>
+                        <span className="invitation__schedule-events">
+                          {day.events.map(([time, event]) => (
+                            <span
+                              className="invitation__schedule-event"
+                              key={`${day.date}-${time}`}
+                            >
+                              <span>{time}</span>
+                              <span>{event}</span>
+                            </span>
+                          ))}
+                        </span>
+                      </span>
+                    ))}
+                  </span>
+                ) : (
+                  <span className="invitation__panel-copy">
+                    {panel.lines.map((line) => (
+                      <span key={line}>{line}</span>
+                    ))}
+                  </span>
+                )}
 
                 {panel.id === "locate" && (
                   <a
