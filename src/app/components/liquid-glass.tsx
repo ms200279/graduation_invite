@@ -32,9 +32,8 @@ export default function LiquidGlass({
     filterLayer.style.removeProperty("height");
 
     const redraw = () => {
-      const rect = root.getBoundingClientRect();
-      const width = Math.round(rect.width);
-      const height = Math.round(rect.height);
+      const width = root.offsetWidth;
+      const height = root.offsetHeight;
 
       if (!width || !height) return;
 
