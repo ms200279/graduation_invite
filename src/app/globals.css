@@ -234,7 +234,7 @@ body {
 }
 
 .liquid-glass__overlay {
-  background: rgb(255 255 255 / 10%);
+  background: transparent;
 }
 
 .liquid-glass__filter {
