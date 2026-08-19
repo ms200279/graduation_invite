@@ -139,7 +139,7 @@ export default function InvitationPanels() {
                         이용객 주차권 지참 시 50% 할인 및 1시간 무료이용권 제공
                       </span>
                       <strong>(주차권으로만 정산 가능, 티켓정산 불가)</strong>
-                      <span>
+                      <span className="invitation__parking-location">
                         주차권 배부 장소: B2 갤러리 3, 전시장 입구 인포데스크
                       </span>
                     </span>
