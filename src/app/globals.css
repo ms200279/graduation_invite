@@ -344,6 +344,30 @@ body {
   line-height: 1.2;
 }
 
+.invitation__parking,
+.invitation__parking-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.invitation__parking {
+  gap: 18px;
+  font-size: 12px;
+  line-height: 1.25;
+}
+
+.invitation__parking-floor {
+  line-height: 1.2;
+}
+
+.invitation__parking-details {
+  gap: 5px;
+}
+
+.invitation__parking-details strong {
+  font-weight: 700;
+}
+
 .invitation__map-link {
   display: inline-flex;
   width: max-content;
