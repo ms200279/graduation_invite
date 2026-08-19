@@ -1,8 +1,8 @@
 "use client";
 
 import type { HTMLAttributes, ReactNode } from "react";
-import { useEffect, useRef } from "react";
-import { getDisplacementFilter } from "../lib/nikdelvin-liquid-glass";
+import { useRef } from "react";
+import { useLiquidGlassFilter } from "../hooks/use-liquid-glass-filter";
 
 type LiquidGlassProps = HTMLAttributes<HTMLDivElement> & {
   children: ReactNode;
@@ -24,76 +24,14 @@ export default function LiquidGlass({
   const rootRef = useRef<HTMLDivElement>(null);
   const filterRef = useRef<HTMLSpanElement>(null);
 
-  useEffect(() => {
-    const root = rootRef.current;
-    const filterLayer = filterRef.current;
-
-    if (!root || !filterLayer) return;
-
-    filterLayer.style.inset = `${-filterBuffer}px`;
-
-    const redraw = () => {
-      const width = root.offsetWidth + filterBuffer * 2;
-      const height = root.offsetHeight + filterBuffer * 2;
-
-      if (!width || !height) return;
-
-      const computedRadius =
-        Number.parseFloat(getComputedStyle(root).borderRadius) || 0;
-      const radius = Math.min(computedRadius, width / 2, height / 2);
-      const displacementFilter = getDisplacementFilter({
-        width,
-        height,
-        radius,
-        depth,
-        boundsInset: filterBuffer,
-        strength,
-        chromaticAberration,
-      });
-      const filterValue = `url("${displacementFilter}") brightness(1) saturate(1)`;
-
-      if (CSS.supports("backdrop-filter", 'url("#test")')) {
-        root.dataset.filterMode = "svg";
-        filterLayer.style.backdropFilter = filterValue;
-      } else {
-        root.dataset.filterMode = "mobile-fallback";
-        filterLayer.style.backdropFilter = "blur(3px) saturate(1.04)";
-        filterLayer.style.webkitBackdropFilter = "blur(3px) saturate(1.04)";
-      }
-    };
-
-    let animationFrame: number | null = null;
-    const scheduleRedraw = () => {
-      if (animationFrame !== null) {
-        cancelAnimationFrame(animationFrame);
-      }
-
-      animationFrame = requestAnimationFrame(() => {
-        animationFrame = null;
-        redraw();
-      });
-    };
-
-    const redrawAfterTransition = (event: TransitionEvent) => {
-      if (event.target === root) {
-        scheduleRedraw();
-      }
-    };
-
-    scheduleRedraw();
-    const resizeObserver = new ResizeObserver(scheduleRedraw);
-    resizeObserver.observe(root);
-    root.addEventListener("transitionend", redrawAfterTransition);
-
-    return () => {
-      resizeObserver.disconnect();
-      root.removeEventListener("transitionend", redrawAfterTransition);
-
-      if (animationFrame !== null) {
-        cancelAnimationFrame(animationFrame);
-      }
-    };
-  }, [chromaticAberration, depth, filterBuffer, strength]);
+  useLiquidGlassFilter({
+    rootRef,
+    filterRef,
+    depth,
+    strength,
+    chromaticAberration,
+    filterBuffer,
+  });
 
   return (
     <div ref={rootRef} className={`liquid-glass ${className}`} {...props}>
