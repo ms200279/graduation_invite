@@ -23,7 +23,7 @@ const PANELS = [
     id: "parking",
     label: "Parking",
     title: "주차 안내",
-    lines: ["주차 안내", "상세 내용은 추후 안내 예정입니다"],
+    lines: [],
   },
 ] as const;
 
@@ -129,6 +129,20 @@ export default function InvitationPanels() {
                         </span>
                       </span>
                     ))}
+                  </span>
+                ) : panel.id === "parking" ? (
+                  <span className="invitation__parking">
+                    <span className="invitation__parking-floor">B3F ~ B6F</span>
+                    <span className="invitation__parking-details">
+                      <span>기본 30분 3,000원 / 이후 20분당 2,000원</span>
+                      <span>
+                        이용객 주차권 지참 시 50% 할인 및 1시간 무료이용권 제공
+                      </span>
+                      <strong>(주차권으로만 정산 가능, 티켓정산 불가)</strong>
+                      <span>
+                        주차권 배부 장소: B2 갤러리 3, 전시장 입구 인포데스크
+                      </span>
+                    </span>
                   </span>
                 ) : (
                   <span className="invitation__panel-copy">
