@@ -208,12 +208,15 @@ body {
   overflow: hidden;
   border: 0;
   border-radius: 999px;
-  background: transparent;
+  background: rgb(0 0 0 / 5%);
   color: #050505;
   font: inherit;
   font-size: 12px;
   line-height: 1;
   pointer-events: auto;
+  backdrop-filter: blur(48px);
+  -webkit-backdrop-filter: blur(48px);
+  will-change: backdrop-filter;
   transition:
     top 420ms cubic-bezier(0.22, 1, 0.36, 1),
     left 420ms cubic-bezier(0.22, 1, 0.36, 1),
@@ -222,19 +225,6 @@ body {
     border-radius 420ms cubic-bezier(0.22, 1, 0.36, 1),
     opacity 180ms ease;
   -webkit-tap-highlight-color: transparent;
-}
-
-.invitation__panel-button::before {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  border-radius: inherit;
-  background: rgb(0 0 0 / 5%);
-  content: "";
-  pointer-events: none;
-  backdrop-filter: blur(48px);
-  -webkit-backdrop-filter: blur(48px);
-  will-change: backdrop-filter;
 }
 
 .invitation__panel-trigger {
