@@ -44,7 +44,7 @@ export default function LiquidGlass({
         strength,
         chromaticAberration,
       });
-      const filterValue = `url("${displacementFilter}") brightness(1.6) saturate(1.2)`;
+      const filterValue = `url("${displacementFilter}") brightness(1) saturate(1)`;
 
       filterLayer.style.width = `${width}px`;
       filterLayer.style.height = `${height}px`;
@@ -52,7 +52,7 @@ export default function LiquidGlass({
       if (CSS.supports("backdrop-filter", 'url("#test")')) {
         filterLayer.style.backdropFilter = filterValue;
       } else {
-        filterLayer.style.webkitBackdropFilter = "brightness(1.08) saturate(1.2)";
+        filterLayer.style.webkitBackdropFilter = "brightness(1) saturate(1)";
       }
     };
 
