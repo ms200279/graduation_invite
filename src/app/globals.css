@@ -21,6 +21,12 @@ body {
 }
 
 .invitation {
+  --content-left: calc(50% - 50px);
+  --content-right: 24px;
+  --content-top: 27.73%;
+  --navigation-bottom: 16.1%;
+  --toast-bottom: 16.1%;
+
   position: relative;
   overflow: hidden;
   width: 100%;
@@ -46,6 +52,9 @@ body {
 
 @media (min-width: 768px) {
   .invitation {
+    --content-left: calc(50% - 30px);
+    --content-right: 5.5814%;
+
     max-width: 500px;
   }
 
@@ -60,7 +69,6 @@ body {
     transform: translate(-50%, -50%) scale(1.5);
     transform-origin: center;
   }
-
 }
 
 .invitation::after {
@@ -74,9 +82,9 @@ body {
 
 .invitation__content {
   position: absolute;
-  top: 27.73%;
-  right: 24px;
-  left: calc(50% - 50px);
+  top: var(--content-top);
+  right: var(--content-right);
+  left: var(--content-left);
   z-index: 2;
   white-space: nowrap;
 }
@@ -163,7 +171,7 @@ body {
 
 .invitation__toast {
   position: fixed;
-  bottom: calc(16.1% + 52px);
+  bottom: calc(var(--toast-bottom) + 52px);
   left: 50%;
   z-index: 10;
   width: max-content;
@@ -199,20 +207,12 @@ body {
 
 .invitation__navigation {
   position: absolute;
-  top: calc(27.73% + 168px);
-  right: 24px;
-  bottom: 16.1%;
-  left: calc(50% - 50px);
+  top: calc(var(--content-top) + 168px);
+  right: var(--content-right);
+  bottom: var(--navigation-bottom);
+  left: var(--content-left);
   z-index: 20;
   pointer-events: none;
-}
-
-@media (min-width: 768px) {
-  .invitation__content,
-  .invitation__navigation {
-    right: 5.5814%;
-    left: calc(50% - 30px);
-  }
 }
 
 .invitation__panel-backdrop {
@@ -504,13 +504,9 @@ body {
 }
 
 @media (max-height: 680px) {
-  .invitation__content {
-    top: 24%;
-  }
-
-  .invitation__navigation {
-    top: calc(24% + 168px);
-    bottom: 10%;
+  .invitation {
+    --content-top: 24%;
+    --navigation-bottom: 10%;
   }
 }
 
