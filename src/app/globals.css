@@ -45,8 +45,8 @@ body {
 }
 
 @media (min-width: 768px) {
-  .invitation__background {
-    object-fit: contain;
+  .invitation {
+    max-width: 500px;
   }
 }
 
