@@ -53,9 +53,12 @@ export default function LiquidGlass({
       const filterValue = `url("${displacementFilter}") brightness(1) saturate(1)`;
 
       if (CSS.supports("backdrop-filter", 'url("#test")')) {
+        root.dataset.filterMode = "svg";
         filterLayer.style.backdropFilter = filterValue;
       } else {
-        filterLayer.style.webkitBackdropFilter = "brightness(1) saturate(1)";
+        root.dataset.filterMode = "mobile-fallback";
+        filterLayer.style.backdropFilter = "blur(3px) saturate(1.04)";
+        filterLayer.style.webkitBackdropFilter = "blur(3px) saturate(1.04)";
       }
     };
 
@@ -100,6 +103,7 @@ export default function LiquidGlass({
         className="liquid-glass__filter"
         aria-hidden="true"
       />
+      <span className="liquid-glass__edge" aria-hidden="true" />
       {children}
     </div>
   );
