@@ -49,10 +49,10 @@ body {
     max-width: 500px;
   }
 
-  .invitation__background {
-    left: -3%;
-    width: 106%;
-    max-width: none;
+  .invitation__content,
+  .invitation__navigation {
+    right: 5.5814%;
+    left: 33.7209%;
   }
 }
 
