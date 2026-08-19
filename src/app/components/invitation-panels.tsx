@@ -95,6 +95,7 @@ export default function InvitationPanels() {
               depth={8}
               strength={24}
               chromaticAberration={0.5}
+              displacement={!isActive}
             >
               <button
                 className="invitation__panel-trigger"
