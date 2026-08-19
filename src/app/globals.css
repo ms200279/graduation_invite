@@ -208,15 +208,12 @@ body {
   overflow: hidden;
   border: 0;
   border-radius: 999px;
-  background: rgb(0 0 0 / 5%);
+  background: transparent;
   color: #050505;
   font: inherit;
   font-size: 12px;
   line-height: 1;
   pointer-events: auto;
-  backdrop-filter: blur(48px);
-  -webkit-backdrop-filter: blur(48px);
-  will-change: backdrop-filter;
   transition:
     top 420ms cubic-bezier(0.22, 1, 0.36, 1),
     left 420ms cubic-bezier(0.22, 1, 0.36, 1),
