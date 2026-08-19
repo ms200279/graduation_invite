@@ -9,7 +9,7 @@ type LiquidGlassProps = HTMLAttributes<HTMLDivElement> & {
   depth?: number;
   strength?: number;
   chromaticAberration?: number;
-  displacement?: boolean;
+  filterBuffer?: number;
 };
 
 export default function LiquidGlass({
@@ -18,7 +18,7 @@ export default function LiquidGlass({
   depth = 8,
   strength = 40,
   chromaticAberration = 1,
-  displacement = true,
+  filterBuffer = 0,
   ...props
 }: LiquidGlassProps) {
   const rootRef = useRef<HTMLDivElement>(null);
@@ -30,18 +30,11 @@ export default function LiquidGlass({
 
     if (!root || !filterLayer) return;
 
-    if (!displacement) {
-      filterLayer.style.backdropFilter = "blur(3px) saturate(1.04)";
-      filterLayer.style.webkitBackdropFilter = "blur(3px) saturate(1.04)";
-      return;
-    }
-
-    filterLayer.style.removeProperty("width");
-    filterLayer.style.removeProperty("height");
+    filterLayer.style.inset = `${-filterBuffer}px`;
 
     const redraw = () => {
-      const width = root.offsetWidth;
-      const height = root.offsetHeight;
+      const width = root.offsetWidth + filterBuffer * 2;
+      const height = root.offsetHeight + filterBuffer * 2;
 
       if (!width || !height) return;
 
@@ -53,6 +46,7 @@ export default function LiquidGlass({
         height,
         radius,
         depth,
+        boundsInset: filterBuffer,
         strength,
         chromaticAberration,
       });
@@ -96,7 +90,7 @@ export default function LiquidGlass({
         cancelAnimationFrame(animationFrame);
       }
     };
-  }, [chromaticAberration, depth, displacement, strength]);
+  }, [chromaticAberration, depth, filterBuffer, strength]);
 
   return (
     <div ref={rootRef} className={`liquid-glass ${className}`} {...props}>
