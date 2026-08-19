@@ -1,3 +1,5 @@
+import AddressCopyButton from "./components/address-copy-button";
+
 export default function Home() {
   return (
     <main className="invitation">
@@ -13,11 +15,10 @@ export default function Home() {
           <p>: flexibility through sensibility</p>
         </div>
 
-        <p className="invitation__details">
-          26.09.18 - 09.20
-          <br />
-          홍익대학교 대학로 아트센터 B2 갤러리 3
-        </p>
+        <div className="invitation__details">
+          <p>26.09.18 - 09.20</p>
+          <AddressCopyButton />
+        </div>
       </section>
 
       <nav className="invitation__navigation" aria-label="전시 안내">
