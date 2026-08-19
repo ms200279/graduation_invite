@@ -229,7 +229,7 @@ body {
   inset: 0;
   z-index: 0;
   border-radius: inherit;
-  background: rgb(0 0 0 / 55%);
+  background: rgb(0 0 0 / 10%);
   content: "";
   pointer-events: none;
   backdrop-filter: blur(48px);
