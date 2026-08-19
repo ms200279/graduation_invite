@@ -61,11 +61,6 @@ body {
     transform-origin: center;
   }
 
-  .invitation__content,
-  .invitation__navigation {
-    right: 5.5814%;
-    left: calc(50% + 10px);
-  }
 }
 
 .invitation::after {
@@ -210,6 +205,14 @@ body {
   left: 145px;
   z-index: 20;
   pointer-events: none;
+}
+
+@media (min-width: 768px) {
+  .invitation__content,
+  .invitation__navigation {
+    right: 5.5814%;
+    left: calc(50% + 10px);
+  }
 }
 
 .invitation__panel-backdrop {
