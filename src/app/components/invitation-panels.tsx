@@ -92,8 +92,8 @@ export default function InvitationPanels() {
               className={`invitation__panel-button invitation__panel-button--${panel.id}`}
               key={panel.id}
               data-active={isActive ? "true" : "false"}
-              depth={4}
-              strength={18}
+              depth={8}
+              strength={24}
               chromaticAberration={0.5}
             >
               <button
