@@ -368,6 +368,10 @@ body {
   font-weight: 700;
 }
 
+.invitation__parking-location {
+  font-size: 10px;
+}
+
 .invitation__map-link {
   display: inline-flex;
   width: max-content;
