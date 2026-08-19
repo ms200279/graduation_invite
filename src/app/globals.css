@@ -38,8 +38,7 @@ body {
   white-space: nowrap;
 }
 
-.invitation p,
-.invitation h1 {
+.invitation :where(p, h1) {
   margin: 0;
   font-weight: 400;
 }
