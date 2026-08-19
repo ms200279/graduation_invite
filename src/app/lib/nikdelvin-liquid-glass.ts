@@ -23,14 +23,14 @@ const getDisplacementMap = ({
     <style>.mix { mix-blend-mode: screen; }</style>
     <defs>
       <linearGradient id="Y" x1="0" x2="0" y1="0%" y2="100%">
-        <stop offset="0%" stop-color="#000000" />
+        <stop offset="0%" stop-color="#00FF00" />
         <stop offset="50%" stop-color="#008000" />
-        <stop offset="100%" stop-color="#00FF00" />
+        <stop offset="100%" stop-color="#000000" />
       </linearGradient>
       <linearGradient id="X" x1="0%" x2="100%" y1="0" y2="0">
-        <stop offset="0%" stop-color="#000000" />
+        <stop offset="0%" stop-color="#FF0000" />
         <stop offset="50%" stop-color="#800000" />
-        <stop offset="100%" stop-color="#FF0000" />
+        <stop offset="100%" stop-color="#000000" />
       </linearGradient>
     </defs>
     <rect width="${width}" height="${height}" fill="#808080" />
