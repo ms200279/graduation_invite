@@ -189,9 +189,6 @@ body {
   font: inherit;
   font-size: 12px;
   line-height: 1;
-  cursor: pointer;
-  appearance: none;
-  touch-action: manipulation;
   pointer-events: auto;
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
@@ -202,6 +199,23 @@ body {
     height 420ms cubic-bezier(0.22, 1, 0.36, 1),
     border-radius 420ms cubic-bezier(0.22, 1, 0.36, 1),
     opacity 180ms ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.invitation__panel-trigger {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  appearance: none;
+  touch-action: manipulation;
   -webkit-tap-highlight-color: transparent;
 }
 
@@ -217,12 +231,12 @@ body {
   left: calc(66.666667% + 8px);
 }
 
-.invitation__panel-button:focus-visible {
+.invitation__panel-trigger:focus-visible {
   outline: 2px solid #050505;
   outline-offset: 2px;
 }
 
-.invitation__panel-button:disabled {
+.invitation__panel-button:has(.invitation__panel-trigger:disabled) {
   cursor: default;
   opacity: 0;
   pointer-events: none;
@@ -234,6 +248,10 @@ body {
   width: 100%;
   height: 100%;
   border-radius: 20px;
+}
+
+.invitation__panel-button[data-active="true"] .invitation__panel-trigger {
+  height: 52px;
 }
 
 .invitation__panel-label {
@@ -277,6 +295,7 @@ body {
   opacity: 1;
   transform: translateY(0);
   transition-delay: 180ms;
+  pointer-events: auto;
 }
 
 .invitation__panel-title {
@@ -290,6 +309,24 @@ body {
   gap: 5px;
   font-size: 12px;
   line-height: 1.35;
+}
+
+.invitation__map-link {
+  display: inline-flex;
+  width: max-content;
+  align-items: center;
+  gap: 4px;
+  color: inherit;
+  font-size: 12px;
+  line-height: 1.2;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.invitation__map-link:focus-visible {
+  border-radius: 2px;
+  outline: 2px solid #050505;
+  outline-offset: 3px;
 }
 
 @media (max-height: 680px) {
