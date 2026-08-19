@@ -28,6 +28,9 @@ export default function LiquidGlass({
 
     if (!root || !filterLayer) return;
 
+    filterLayer.style.removeProperty("width");
+    filterLayer.style.removeProperty("height");
+
     const redraw = () => {
       const rect = root.getBoundingClientRect();
       const width = Math.round(rect.width);
@@ -47,9 +50,6 @@ export default function LiquidGlass({
         chromaticAberration,
       });
       const filterValue = `url("${displacementFilter}") brightness(1) saturate(1)`;
-
-      filterLayer.style.width = `${width}px`;
-      filterLayer.style.height = `${height}px`;
 
       if (CSS.supports("backdrop-filter", 'url("#test")')) {
         filterLayer.style.backdropFilter = filterValue;
