@@ -35,7 +35,9 @@ export default function LiquidGlass({
 
       if (!width || !height) return;
 
-      const radius = Number.parseFloat(getComputedStyle(root).borderRadius) || 0;
+      const computedRadius =
+        Number.parseFloat(getComputedStyle(root).borderRadius) || 0;
+      const radius = Math.min(computedRadius, width / 2, height / 2);
       const displacementFilter = getDisplacementFilter({
         width,
         height,
