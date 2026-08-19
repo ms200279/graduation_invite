@@ -64,7 +64,7 @@ body {
   .invitation__content,
   .invitation__navigation {
     right: 5.5814%;
-    left: calc(50% - 70px);
+    left: calc(50% - 30px);
   }
 }
 
