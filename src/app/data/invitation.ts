@@ -13,6 +13,7 @@ export const INVITATION_PANELS = [
 ] as const;
 
 export type PanelId = (typeof INVITATION_PANELS)[number]["id"];
+export type InvitationPanelData = (typeof INVITATION_PANELS)[number];
 
 export const EXHIBITION_SCHEDULE = [
   {

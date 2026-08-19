@@ -2,8 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { INVITATION_PANELS, type PanelId } from "../data/invitation";
-import LiquidGlass from "./liquid-glass";
-import PanelContent from "./panel-content";
+import InvitationPanel from "./invitation-panel";
 
 export default function InvitationPanels() {
   const [activePanel, setActivePanel] = useState<PanelId | null>(null);
@@ -40,35 +39,13 @@ export default function InvitationPanels() {
           const isDisabled = activePanel !== null && !isActive;
 
           return (
-            <LiquidGlass
-              className={`invitation__panel-button invitation__panel-button--${panel.id}`}
+            <InvitationPanel
               key={panel.id}
-              data-active={isActive ? "true" : "false"}
-              depth={8}
-              strength={24}
-              chromaticAberration={0.5}
-              filterBuffer={isActive ? 20 : 0}
-            >
-              <button
-                className="invitation__panel-trigger"
-                type="button"
-                aria-expanded={isActive}
-                aria-controls={`${panel.id}-panel`}
-                disabled={isDisabled}
-                onClick={() => setActivePanel(panel.id)}
-              >
-                <span className="invitation__panel-label">{panel.label}</span>
-              </button>
-
-              <span
-                className="invitation__panel-content"
-                id={`${panel.id}-panel`}
-                aria-hidden={!isActive}
-              >
-                <span className="invitation__panel-title">{panel.title}</span>
-                <PanelContent panelId={panel.id} />
-              </span>
-            </LiquidGlass>
+              panel={panel}
+              isActive={isActive}
+              isDisabled={isDisabled}
+              onOpen={setActivePanel}
+            />
           );
         })}
       </nav>
