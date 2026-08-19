@@ -15,10 +15,97 @@ body {
   margin: 0;
   overflow-x: clip;
   background: #ffffff;
+  color: #050505;
+  font-family: Arial, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
 }
 
-main {
+.invitation {
+  position: relative;
   width: 100%;
+  max-width: 430px;
   min-height: 100vh;
   min-height: 100dvh;
+  margin: 0 auto;
+  background: #ffffff;
+}
+
+.invitation__content {
+  position: absolute;
+  top: 27.73%;
+  left: 37.18%;
+  white-space: nowrap;
+}
+
+.invitation p,
+.invitation h1 {
+  margin: 0;
+  font-weight: 400;
+}
+
+.invitation__eyebrow,
+.invitation__details {
+  font-size: 12.5px;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+}
+
+.invitation__title-group {
+  margin-top: 18px;
+}
+
+.invitation__title-group h1 {
+  font-size: 29px;
+  line-height: 1;
+  letter-spacing: -0.035em;
+}
+
+.invitation__title-group p {
+  margin-top: 4px;
+  font-size: 16px;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.invitation__details {
+  margin-top: 62px;
+}
+
+.invitation__navigation {
+  position: absolute;
+  bottom: 16.1%;
+  left: 37.18%;
+  display: flex;
+  gap: 12px;
+}
+
+.invitation__navigation button {
+  display: grid;
+  min-width: 66px;
+  height: 36px;
+  padding: 0 7px;
+  place-items: center;
+  border: 0;
+  border-radius: 999px;
+  background: #dedede;
+  color: #050505;
+  font: inherit;
+  font-size: 12px;
+  line-height: 1;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.invitation__navigation button:focus-visible {
+  outline: 2px solid #050505;
+  outline-offset: 2px;
+}
+
+@media (max-height: 680px) {
+  .invitation__content {
+    top: 24%;
+  }
+
+  .invitation__navigation {
+    bottom: 10%;
+  }
 }
