@@ -229,11 +229,11 @@ body {
   inset: 0;
   z-index: 0;
   border-radius: inherit;
-  background: rgb(255 255 255 / 1%);
+  background: rgb(255 255 255 / 18%);
   content: "";
   pointer-events: none;
-  backdrop-filter: blur(36px);
-  -webkit-backdrop-filter: blur(36px);
+  backdrop-filter: blur(48px);
+  -webkit-backdrop-filter: blur(48px);
   will-change: backdrop-filter;
 }
 
