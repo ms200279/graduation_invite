@@ -22,13 +22,15 @@ const getDisplacementMap = ({
   encodeURIComponent(`<svg height="${height}" width="${width}" viewBox="0 0 ${width} ${height}" xmlns="http://www.w3.org/2000/svg">
     <style>.mix { mix-blend-mode: screen; }</style>
     <defs>
-      <linearGradient id="Y" x1="0" x2="0" y1="${Math.ceil((radius / height) * 15)}%" y2="${Math.floor(100 - (radius / height) * 15)}%">
-        <stop offset="0%" stop-color="#0F0" />
-        <stop offset="100%" stop-color="#000" />
+      <linearGradient id="Y" x1="0" x2="0" y1="0%" y2="100%">
+        <stop offset="0%" stop-color="#000000" />
+        <stop offset="50%" stop-color="#008000" />
+        <stop offset="100%" stop-color="#00FF00" />
       </linearGradient>
-      <linearGradient id="X" x1="${Math.ceil((radius / width) * 15)}%" x2="${Math.floor(100 - (radius / width) * 15)}%" y1="0" y2="0">
-        <stop offset="0%" stop-color="#F00" />
-        <stop offset="100%" stop-color="#000" />
+      <linearGradient id="X" x1="0%" x2="100%" y1="0" y2="0">
+        <stop offset="0%" stop-color="#000000" />
+        <stop offset="50%" stop-color="#800000" />
+        <stop offset="100%" stop-color="#FF0000" />
       </linearGradient>
     </defs>
     <rect width="${width}" height="${height}" fill="#808080" />
