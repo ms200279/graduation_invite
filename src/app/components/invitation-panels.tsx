@@ -139,10 +139,10 @@ export default function InvitationPanels() {
                   <span className="invitation__parking">
                     <span className="invitation__parking-floor">B3F ~ B6F</span>
                     <span className="invitation__parking-details">
-                      <span>기본 30분 3,000원 / 이후 20분당 2,000원</span>
-                      <span>
-                        이용객 주차권 지참 시 50% 할인 및 1시간 무료이용권 제공
-                      </span>
+                      <span>기본 30분 3,000원</span>
+                      <span>이후 20분당 2,000원</span>
+                      <span>이용객 주차권 지참 시 50% 할인</span>
+                      <span>및 1시간 무료이용권 제공</span>
                       <span>(주차권으로만 정산 가능, 티켓정산 불가)</span>
                       <span className="invitation__parking-location">
                         주차권 배부 장소: B2 갤러리 3, 전시장 입구 인포데스크
