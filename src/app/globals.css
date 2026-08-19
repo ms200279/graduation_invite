@@ -209,7 +209,7 @@ body {
   border: 0;
   border-radius: 999px;
   background: transparent;
-  color: #050505;
+  color: #ffffff;
   font: inherit;
   font-size: 12px;
   line-height: 1;
@@ -229,7 +229,7 @@ body {
   inset: 0;
   z-index: 0;
   border-radius: inherit;
-  background: rgb(255 255 255 / 18%);
+  background: rgb(0 0 0 / 55%);
   content: "";
   pointer-events: none;
   backdrop-filter: blur(48px);
@@ -268,7 +268,7 @@ body {
 }
 
 .invitation__panel-trigger:focus-visible {
-  outline: 2px solid #050505;
+  outline: 2px solid #ffffff;
   outline-offset: 2px;
 }
 
@@ -423,7 +423,7 @@ body {
 
 .invitation__map-link:focus-visible {
   border-radius: 2px;
-  outline: 2px solid #050505;
+  outline: 2px solid #ffffff;
   outline-offset: 3px;
 }
 
