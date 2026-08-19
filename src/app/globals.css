@@ -239,7 +239,6 @@ body {
 
 .liquid-glass__filter {
   background: transparent;
-  box-shadow: inset 0 0 4px rgb(250 250 250 / 50%);
 }
 
 .invitation__panel-trigger {
