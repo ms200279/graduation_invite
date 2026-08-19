@@ -49,11 +49,16 @@ export const getDisplacementFilter = ({
   depth,
   strength = 100,
   chromaticAberration = 0,
-}: DisplacementOptions) =>
-  "data:image/svg+xml;utf8," +
-  encodeURIComponent(`<svg height="${height}" width="${width}" viewBox="0 0 ${width} ${height}" xmlns="http://www.w3.org/2000/svg">
+}: DisplacementOptions) => {
+  const padding = Math.ceil(
+    strength / 2 + chromaticAberration * 2 + depth * 2,
+  );
+
+  return (
+    "data:image/svg+xml;utf8," +
+    encodeURIComponent(`<svg height="${height}" width="${width}" viewBox="0 0 ${width} ${height}" xmlns="http://www.w3.org/2000/svg">
     <defs>
-      <filter id="displace" color-interpolation-filters="sRGB">
+      <filter id="displace" x="-${padding}" y="-${padding}" width="${width + padding * 2}" height="${height + padding * 2}" filterUnits="userSpaceOnUse" primitiveUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
         <feImage width="${width}" height="${height}" href="${getDisplacementMap({ height, width, radius, depth })}" result="displacementMap" />
         <feDisplacementMap in="SourceGraphic" in2="displacementMap" scale="${strength + chromaticAberration * 2}" xChannelSelector="R" yChannelSelector="G" />
         <feColorMatrix type="matrix" values="1 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1 0" result="displacedR" />
@@ -65,4 +70,7 @@ export const getDisplacementFilter = ({
         <feBlend in2="displacedB" mode="screen" />
       </filter>
     </defs>
-  </svg>`) + "#displace";
+  </svg>`) +
+    "#displace"
+  );
+};
