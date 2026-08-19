@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import LiquidGlass from "./liquid-glass";
 
 const PANELS = [
   {
@@ -87,10 +88,13 @@ export default function InvitationPanels() {
           const isDisabled = activePanel !== null && !isActive;
 
           return (
-            <div
+            <LiquidGlass
               className={`invitation__panel-button invitation__panel-button--${panel.id}`}
               key={panel.id}
               data-active={isActive ? "true" : "false"}
+              depth={7}
+              strength={34}
+              chromaticAberration={1}
             >
               <button
                 className="invitation__panel-trigger"
@@ -164,7 +168,7 @@ export default function InvitationPanels() {
                   </a>
                 )}
               </span>
-            </div>
+            </LiquidGlass>
           );
         })}
       </nav>
