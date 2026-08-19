@@ -58,11 +58,37 @@ export default function LiquidGlass({
       }
     };
 
-    redraw();
-    const resizeObserver = new ResizeObserver(redraw);
-    resizeObserver.observe(root);
+    let animationFrame: number | null = null;
+    const scheduleRedraw = () => {
+      if (animationFrame !== null) {
+        cancelAnimationFrame(animationFrame);
+      }
 
-    return () => resizeObserver.disconnect();
+      animationFrame = requestAnimationFrame(() => {
+        animationFrame = null;
+        redraw();
+      });
+    };
+
+    const redrawAfterTransition = (event: TransitionEvent) => {
+      if (event.target === root) {
+        scheduleRedraw();
+      }
+    };
+
+    scheduleRedraw();
+    const resizeObserver = new ResizeObserver(scheduleRedraw);
+    resizeObserver.observe(root);
+    root.addEventListener("transitionend", redrawAfterTransition);
+
+    return () => {
+      resizeObserver.disconnect();
+      root.removeEventListener("transitionend", redrawAfterTransition);
+
+      if (animationFrame !== null) {
+        cancelAnimationFrame(animationFrame);
+      }
+    };
   }, [chromaticAberration, depth, strength]);
 
   return (
