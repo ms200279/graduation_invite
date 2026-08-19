@@ -450,10 +450,6 @@ body {
   gap: 5px;
 }
 
-.invitation__parking-details strong {
-  font-weight: 700;
-}
-
 .invitation__parking-location {
   font-size: 10px;
 }
