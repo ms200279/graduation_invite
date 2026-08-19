@@ -48,6 +48,12 @@ body {
   .invitation {
     max-width: 500px;
   }
+
+  .invitation__background {
+    left: -3%;
+    width: 106%;
+    max-width: none;
+  }
 }
 
 .invitation::after {
