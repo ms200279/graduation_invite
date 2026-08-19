@@ -42,12 +42,21 @@ body {
   pointer-events: none;
 }
 
+.invitation::after {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: rgb(255 255 255 / 38%);
+  content: "";
+  pointer-events: none;
+}
+
 .invitation__content {
   position: absolute;
   top: 27.73%;
   right: 24px;
   left: 145px;
-  z-index: 1;
+  z-index: 2;
   white-space: nowrap;
 }
 
