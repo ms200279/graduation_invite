@@ -311,6 +311,39 @@ body {
   line-height: 1.35;
 }
 
+.invitation__schedule {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 12px;
+}
+
+.invitation__schedule-day,
+.invitation__schedule-events {
+  display: flex;
+  flex-direction: column;
+}
+
+.invitation__schedule-day {
+  gap: 4px;
+}
+
+.invitation__schedule-date {
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.invitation__schedule-events {
+  gap: 2px;
+}
+
+.invitation__schedule-event {
+  display: grid;
+  grid-template-columns: 38px minmax(0, 1fr);
+  gap: 8px;
+  line-height: 1.2;
+}
+
 .invitation__map-link {
   display: inline-flex;
   width: max-content;
