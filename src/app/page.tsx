@@ -1,4 +1,5 @@
 import AddressCopyButton from "./components/address-copy-button";
+import InvitationPanels from "./components/invitation-panels";
 
 export default function Home() {
   return (
@@ -21,11 +22,7 @@ export default function Home() {
         </div>
       </section>
 
-      <nav className="invitation__navigation" aria-label="전시 안내">
-        <button type="button">Schedule</button>
-        <button type="button">Locate</button>
-        <button type="button">Parking</button>
-      </nav>
+      <InvitationPanels />
     </main>
   );
 }
