@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { VENUE } from "../data/invitation";
 
-const VENUE_ADDRESS = "서울특별시 종로구 대학로 57";
 const TOAST_DURATION = 2200;
 
 export default function AddressCopyButton() {
@@ -31,7 +31,7 @@ export default function AddressCopyButton() {
 
   const copyAddress = async () => {
     try {
-      await navigator.clipboard.writeText(VENUE_ADDRESS);
+      await navigator.clipboard.writeText(VENUE.address);
       showToast("클립보드에 복사되었습니다");
     } catch {
       showToast("주소를 복사하지 못했습니다");
@@ -44,9 +44,11 @@ export default function AddressCopyButton() {
         className="invitation__address"
         type="button"
         onClick={copyAddress}
-        aria-label={`${VENUE_ADDRESS} 복사`}
+        aria-label={`${VENUE.address} 복사`}
       >
-        <span>홍익대학교 대학로 아트센터 B2 갤러리 3</span>
+        <span>
+          {VENUE.name} {VENUE.floor}
+        </span>
         <svg
           className="invitation__copy-icon"
           viewBox="0 0 16 16"
