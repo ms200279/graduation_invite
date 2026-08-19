@@ -45,7 +45,7 @@ body {
 
 .invitation__eyebrow,
 .invitation__details {
-  font-size: 12.5px;
+  font-size: 12px;
   line-height: 1.2;
   letter-spacing: -0.025em;
 }
@@ -55,7 +55,7 @@ body {
 }
 
 .invitation__title-group h1 {
-  font-size: 29px;
+  font-size: 36px;
   line-height: 40px;
   letter-spacing: -0.035em;
 }
