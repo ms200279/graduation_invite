@@ -57,7 +57,10 @@ export function useLiquidGlassFilter({
       if (!supportsSvgBackdropFilter()) {
         root.dataset.filterMode = "mobile-fallback";
         filterLayer.style.backdropFilter = FALLBACK_FILTER;
-        filterLayer.style.webkitBackdropFilter = FALLBACK_FILTER;
+        filterLayer.style.setProperty(
+          "-webkit-backdrop-filter",
+          FALLBACK_FILTER,
+        );
         return;
       }
 
@@ -74,7 +77,7 @@ export function useLiquidGlassFilter({
 
       root.dataset.filterMode = "svg";
       filterLayer.style.backdropFilter = filterValue;
-      filterLayer.style.webkitBackdropFilter = filterValue;
+      filterLayer.style.setProperty("-webkit-backdrop-filter", filterValue);
     };
 
     let animationFrame: number | null = null;
