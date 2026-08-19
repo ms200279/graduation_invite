@@ -69,6 +69,18 @@ body {
 
 .invitation__details {
   margin-top: 60px;
+  transition:
+    opacity 180ms ease,
+    visibility 0s;
+}
+
+.invitation:has(.invitation__navigation[data-expanded="true"])
+  .invitation__details {
+  visibility: hidden;
+  opacity: 0;
+  transition:
+    opacity 180ms ease,
+    visibility 0s 180ms;
 }
 
 .invitation__address {
