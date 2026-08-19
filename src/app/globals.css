@@ -76,7 +76,7 @@ body {
   position: absolute;
   top: 27.73%;
   right: 24px;
-  left: calc(50% - 70px);
+  left: calc(50% - 50px);
   z-index: 2;
   white-space: nowrap;
 }
@@ -202,7 +202,7 @@ body {
   top: calc(27.73% + 168px);
   right: 24px;
   bottom: 16.1%;
-  left: calc(50% - 70px);
+  left: calc(50% - 50px);
   z-index: 20;
   pointer-events: none;
 }
