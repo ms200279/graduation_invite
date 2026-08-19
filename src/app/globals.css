@@ -49,6 +49,18 @@ body {
     max-width: 500px;
   }
 
+  .invitation__background {
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    object-fit: cover;
+    object-position: center;
+    transform: translate(-50%, -50%) scale(1.15);
+    transform-origin: center;
+  }
+
   .invitation__content,
   .invitation__navigation {
     right: 5.5814%;
