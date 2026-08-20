@@ -76,7 +76,7 @@ src/app/
 └── page.tsx
 ```
 
-배경 영상은 `public/videos/mbg.webm`에 있습니다. Liquid Glass 원본 라이선스는 `src/vendor/nikdelvin-liquid-glass/LICENSE`에서 확인할 수 있습니다.
+배경 영상은 `public/videos/mbg.webm`에 있습니다. 카카오톡 등 링크 공유용 OG 이미지는 `public/images/og-image.jpg`에 추가하며, 배포 환경에서는 `https://graduation-invite-dusky.vercel.app/images/og-image.jpg`로 제공됩니다. Liquid Glass 원본 라이선스는 `src/vendor/nikdelvin-liquid-glass/LICENSE`에서 확인할 수 있습니다.
 
 ## 로컬 실행
 
