@@ -416,10 +416,7 @@ body {
 }
 
 @media (max-width: 767px) {
-  :is(
-      .invitation__panel-button--schedule,
-      .invitation__panel-button--parking
-    )[data-active="true"]
+  .invitation__panel-button[data-active="true"][data-mobile-scroll="true"]
     .invitation__panel-content {
     bottom: 0;
     overflow-y: auto;
@@ -430,10 +427,7 @@ body {
     -webkit-overflow-scrolling: touch;
   }
 
-  :is(
-      .invitation__panel-button--schedule,
-      .invitation__panel-button--parking
-    )[data-active="true"]
+  .invitation__panel-button[data-active="true"][data-mobile-scroll="true"]
     .invitation__panel-content::-webkit-scrollbar {
     display: none;
   }
