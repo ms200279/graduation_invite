@@ -31,6 +31,7 @@ export default function InvitationPanel({
     <LiquidGlass
       className={`invitation__panel-button invitation__panel-button--${panel.id}`}
       data-active={isActive ? "true" : "false"}
+      data-mobile-scroll={panel.mobileScrollable ? "true" : undefined}
       depth={GLASS_SETTINGS.depth}
       strength={GLASS_SETTINGS.strength}
       chromaticAberration={GLASS_SETTINGS.chromaticAberration}
@@ -51,6 +52,7 @@ export default function InvitationPanel({
         className="invitation__panel-content"
         id={contentId}
         aria-hidden={!isActive}
+        inert={!isActive}
       >
         <span className="invitation__panel-title">{panel.title}</span>
         <PanelContent panelId={panel.id} />

@@ -7,9 +7,24 @@ export const VENUE = {
 export const NAVER_MAP_URL = `https://map.naver.com/p/search/${encodeURIComponent(VENUE.address)}`;
 
 export const INVITATION_PANELS = [
-  { id: "schedule", label: "Schedule", title: "전시 일정" },
-  { id: "locate", label: "Locate", title: "전시 위치" },
-  { id: "parking", label: "Parking", title: "주차 안내" },
+  {
+    id: "schedule",
+    label: "Schedule",
+    title: "전시 일정",
+    mobileScrollable: true,
+  },
+  {
+    id: "locate",
+    label: "Locate",
+    title: "전시 위치",
+    mobileScrollable: false,
+  },
+  {
+    id: "parking",
+    label: "Parking",
+    title: "주차 안내",
+    mobileScrollable: true,
+  },
 ] as const;
 
 export type PanelId = (typeof INVITATION_PANELS)[number]["id"];
