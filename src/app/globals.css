@@ -228,6 +228,8 @@ body {
 }
 
 .invitation__panel-button {
+  --panel-content-inset: 44px;
+
   position: absolute;
   top: calc(100% - 36px);
   bottom: auto;
@@ -389,7 +391,7 @@ body {
 
 .invitation__panel-content {
   position: absolute;
-  top: 44px;
+  top: var(--panel-content-inset);
   right: 18px;
   left: 18px;
   z-index: 2;
@@ -411,6 +413,30 @@ body {
   transform: translateY(0);
   transition-delay: 180ms;
   pointer-events: auto;
+}
+
+@media (max-width: 767px) {
+  :is(
+      .invitation__panel-button--schedule,
+      .invitation__panel-button--parking
+    )[data-active="true"]
+    .invitation__panel-content {
+    bottom: 0;
+    overflow-y: auto;
+    overscroll-behavior-y: contain;
+    padding-bottom: var(--panel-content-inset);
+    scrollbar-width: none;
+    touch-action: pan-y;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  :is(
+      .invitation__panel-button--schedule,
+      .invitation__panel-button--parking
+    )[data-active="true"]
+    .invitation__panel-content::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 .invitation__panel-title {
