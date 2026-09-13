@@ -1,0 +1,18 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  overflow-x: clip;
+  background: #ffffff;
+  color: #050505;
+  font-family: "Pretendard Variable", Pretendard, sans-serif;
+}

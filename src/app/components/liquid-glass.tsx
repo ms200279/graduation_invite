@@ -2,6 +2,7 @@
 
 import type { HTMLAttributes, ReactNode } from "react";
 import { useRef } from "react";
+import { LIQUID_GLASS_SETTINGS } from "../config/liquid-glass";
 import { useLiquidGlassFilter } from "../hooks/use-liquid-glass-filter";
 
 type LiquidGlassProps = HTMLAttributes<HTMLDivElement> & {
@@ -15,10 +16,10 @@ type LiquidGlassProps = HTMLAttributes<HTMLDivElement> & {
 export default function LiquidGlass({
   children,
   className = "",
-  depth = 8,
-  strength = 40,
-  chromaticAberration = 1,
-  filterBuffer = 0,
+  depth = LIQUID_GLASS_SETTINGS.depth,
+  strength = LIQUID_GLASS_SETTINGS.strength,
+  chromaticAberration = LIQUID_GLASS_SETTINGS.chromaticAberration,
+  filterBuffer = LIQUID_GLASS_SETTINGS.collapsedBuffer,
   ...props
 }: LiquidGlassProps) {
   const rootRef = useRef<HTMLDivElement>(null);

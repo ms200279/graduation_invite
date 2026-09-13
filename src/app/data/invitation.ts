@@ -1,3 +1,11 @@
+export const INVITATION_HERO = {
+  institution: "2026 한국공학대학교",
+  exhibition: "디자인공학부 제 21회 졸업전시회",
+  title: "sensibility",
+  subtitle: ": Flexibility through Sensibility",
+  dates: "26.09.18 - 09.20",
+} as const;
+
 export const VENUE = {
   name: "홍익대학교 대학로 아트센터",
   floor: "B2 갤러리 3",

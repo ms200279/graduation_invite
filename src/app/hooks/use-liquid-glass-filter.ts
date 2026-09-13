@@ -13,14 +13,20 @@ type LiquidGlassFilterOptions = {
 };
 
 const FALLBACK_FILTER = "blur(3px) saturate(1.04)";
+let svgBackdropFilterSupported: boolean | undefined;
 
 function supportsSvgBackdropFilter() {
+  if (svgBackdropFilterSupported !== undefined) {
+    return svgBackdropFilterSupported;
+  }
+
   const svgFilter = 'url("#liquid-glass-support-test")';
 
-  return (
+  svgBackdropFilterSupported =
     CSS.supports("backdrop-filter", svgFilter) ||
-    CSS.supports("-webkit-backdrop-filter", svgFilter)
-  );
+    CSS.supports("-webkit-backdrop-filter", svgFilter);
+
+  return svgBackdropFilterSupported;
 }
 
 export function useLiquidGlassFilter({

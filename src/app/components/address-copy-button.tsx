@@ -1,33 +1,10 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
 import { VENUE } from "../data/invitation";
-
-const TOAST_DURATION = 2200;
+import { useClipboardToast } from "../hooks/use-clipboard-toast";
 
 export default function AddressCopyButton() {
-  const [toastMessage, setToastMessage] = useState<string | null>(null);
-  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-
-  useEffect(() => {
-    return () => {
-      if (timeoutRef.current) {
-        clearTimeout(timeoutRef.current);
-      }
-    };
-  }, []);
-
-  const showToast = (message: string) => {
-    setToastMessage(message);
-
-    if (timeoutRef.current) {
-      clearTimeout(timeoutRef.current);
-    }
-
-    timeoutRef.current = setTimeout(() => {
-      setToastMessage(null);
-    }, TOAST_DURATION);
-  };
+  const { toastMessage, showToast } = useClipboardToast();
 
   const copyAddress = async () => {
     try {
