@@ -2,6 +2,7 @@ import type {
   InvitationPanelData,
   PanelId,
 } from "../data/invitation";
+import { LIQUID_GLASS_SETTINGS } from "../config/liquid-glass";
 import LiquidGlass from "./liquid-glass";
 import PanelContent from "./panel-content";
 
@@ -11,13 +12,6 @@ type InvitationPanelProps = {
   isDisabled: boolean;
   onOpen: (panelId: PanelId) => void;
 };
-
-const GLASS_SETTINGS = {
-  depth: 8,
-  strength: 24,
-  chromaticAberration: 0.5,
-  expandedBuffer: 20,
-} as const;
 
 export default function InvitationPanel({
   panel,
@@ -32,10 +26,11 @@ export default function InvitationPanel({
       className={`invitation__panel-button invitation__panel-button--${panel.id}`}
       data-active={isActive ? "true" : "false"}
       data-mobile-scroll={panel.mobileScrollable ? "true" : undefined}
-      depth={GLASS_SETTINGS.depth}
-      strength={GLASS_SETTINGS.strength}
-      chromaticAberration={GLASS_SETTINGS.chromaticAberration}
-      filterBuffer={isActive ? GLASS_SETTINGS.expandedBuffer : 0}
+      filterBuffer={
+        isActive
+          ? LIQUID_GLASS_SETTINGS.expandedBuffer
+          : LIQUID_GLASS_SETTINGS.collapsedBuffer
+      }
     >
       <button
         className="invitation__panel-trigger"

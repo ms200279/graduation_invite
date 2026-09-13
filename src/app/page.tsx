@@ -1,5 +1,6 @@
 import AddressCopyButton from "./components/address-copy-button";
 import InvitationPanels from "./components/invitation-panels";
+import { INVITATION_HERO } from "./data/invitation";
 
 export default function Home() {
   return (
@@ -19,18 +20,18 @@ export default function Home() {
 
       <section className="invitation__content">
         <p className="invitation__eyebrow">
-          2026 한국공학대학교
+          {INVITATION_HERO.institution}
           <br />
-          디자인공학부 제 21회 졸업전시회
+          {INVITATION_HERO.exhibition}
         </p>
 
         <div className="invitation__title-group">
-          <h1>sensibility</h1>
-          <p>: Flexibility through Sensibility</p>
+          <h1>{INVITATION_HERO.title}</h1>
+          <p>{INVITATION_HERO.subtitle}</p>
         </div>
 
         <div className="invitation__details">
-          <p>26.09.18 - 09.20</p>
+          <p>{INVITATION_HERO.dates}</p>
           <AddressCopyButton />
         </div>
       </section>

@@ -1,0 +1,18 @@
+.liquid-glass__overlay,
+.liquid-glass__filter,
+.liquid-glass__edge {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.liquid-glass__overlay,
+.liquid-glass__filter {
+  background: transparent;
+}
+
+.liquid-glass__edge {
+  display: none;
+}

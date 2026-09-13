@@ -1,3 +1,4 @@
+import type { ComponentType } from "react";
 import {
   EXHIBITION_SCHEDULE,
   NAVER_MAP_URL,
@@ -68,13 +69,14 @@ function ParkingContent() {
   );
 }
 
+const PANEL_CONTENT = {
+  schedule: ScheduleContent,
+  locate: LocationContent,
+  parking: ParkingContent,
+} satisfies Record<PanelId, ComponentType>;
+
 export default function PanelContent({ panelId }: { panelId: PanelId }) {
-  switch (panelId) {
-    case "schedule":
-      return <ScheduleContent />;
-    case "locate":
-      return <LocationContent />;
-    case "parking":
-      return <ParkingContent />;
-  }
+  const Content = PANEL_CONTENT[panelId];
+
+  return <Content />;
 }

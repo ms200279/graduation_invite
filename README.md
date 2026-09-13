@@ -60,18 +60,27 @@
 ```text
 src/app/
 ├── components/
-│   ├── address-copy-button.tsx    # 주소 복사와 토스트
+│   ├── address-copy-button.tsx    # 주소 복사 버튼
 │   ├── invitation-panel.tsx       # 개별 안내 패널
 │   ├── invitation-panels.tsx      # 패널 열림/닫힘 상태
 │   ├── liquid-glass.tsx           # Liquid Glass 표시 계층
 │   └── panel-content.tsx          # 일정·위치·주차 콘텐츠
+├── config/
+│   └── liquid-glass.ts            # Liquid Glass 공통 설정
 ├── data/
-│   └── invitation.ts              # 전시 정보와 패널 데이터
+│   └── invitation.ts              # 초대장 문구와 패널 데이터
 ├── hooks/
+│   ├── use-clipboard-toast.ts     # 복사 결과 토스트 상태
 │   └── use-liquid-glass-filter.ts # 필터 측정과 브라우저 fallback
 ├── lib/
 │   └── nikdelvin-liquid-glass.ts  # SVG 변위 필터 생성
-├── globals.css                    # 레이아웃과 애니메이션
+├── styles/
+│   ├── base.css                   # 전역 기본 스타일
+│   ├── invitation.css             # 초대장 레이아웃
+│   ├── liquid-glass.css           # Liquid Glass 표시 계층
+│   ├── panel-content.css          # 패널 내부 콘텐츠
+│   └── panels.css                 # 패널 레이아웃과 애니메이션
+├── globals.css                    # 전역 스타일 진입점
 ├── layout.tsx
 └── page.tsx
 ```
@@ -91,7 +100,7 @@ npm run dev
 
 ```bash
 npm run lint
-npx tsc --noEmit
+npm run typecheck
 npx next build --webpack
 ```
 
